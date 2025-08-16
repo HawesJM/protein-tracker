@@ -24,6 +24,34 @@
     <title>Protein Tracker</title>
 </head>
 <body>
+<header>
+<nav class="navbar navbar-expand-lg bg-body-tertiary" id="main-navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{ url_for('get_days') }}">Protein Tracker</a>
+    <button
+      data-mdb-collapse-init
+      class="navbar-toggler"
+      type="button"
+      data-mdb-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+					<li><a href="#">Profile</a></li>
+					<li><a href="#">New Record</a></li>
+					<li><a href="#">Manage</a></li>
+					<li><a href="#">Log Out</a></li>
+					<li><a href="#">Log In</a></li>
+					<li><a href="#">Register</a></li>
+      </div>
+    </div>
+  </div>
+</nav>
+</header>
     {% block content %}
     {% endblock %}
     <!-- MDB -->

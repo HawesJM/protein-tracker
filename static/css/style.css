@@ -1,0 +1,12 @@
+#main-navbar {
+    background-color: #bf360c !important;
+}
+
+.navbar-brand {
+    color: white !important;
+}
+
+a {
+    color: white !important;
+    margin: 5px;
+}
