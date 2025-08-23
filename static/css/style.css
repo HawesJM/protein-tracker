@@ -7,6 +7,14 @@
 }
 
 a {
-    color: white !important;
+    color: white ;
     margin: 5px;
+}
+
+.flashes h4 {
+    line-height: 2;
+}
+
+#login-redirect {
+    color: blue !important;
 }

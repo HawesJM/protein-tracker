@@ -1,0 +1,43 @@
+{% extends "base.html" %} 
+{% block content %}
+
+<br>
+<h3 class="text-center">Log in</h3>
+
+
+<div class="row">
+    <div class="col-10 mx-auto">
+        <div class="card">
+            <form method="POST" action="{{ url_for('login') }}">
+                <div class="card-body col-6 mx-auto text-center">
+                    <div class="">
+                        <i class="fas fa-user-lock fa-3x col-5"></i>
+                    </div>
+                    <!-- username -->
+                    <div class="form-outline text-left" data-mdb-input-init>
+                        <input type="text" id="username" name="username" class="form-control" />
+                        <label class="form-label" for="username">Username</label>
+                    </div>
+                    <br>
+                    <div class="">
+                        <i class="fas fa-unlock-keyhole fa-3x"></i>
+                    </div>
+                     <!-- password -->
+                    <div class="form-outline text-left" data-mdb-input-init>
+                        <input type="password" id="password" name="password" class="form-control" />
+                        <label class="form-label" for="password">Password</label>
+                    </div>
+                    <br>
+                    <!-- login -->
+                    <div class="col-12">
+                        <button class="btn btn-primary" type="submit" data-mdb-ripple-init>Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+
+{% endblock %}

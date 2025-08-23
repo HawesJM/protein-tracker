@@ -1,19 +1,20 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
+{% block content %}
 
 <h3 class="text-center">Register</h3>
 
 
 <div class="row">
-    <div class="col-6 mx-auto">
+    <div class="col-10 mx-auto">
         <div class="card">
             <form method="POST" action="{{ url_for('register') }}">
                 <div class="card-body col-6 mx-auto text-center">
                     <div class="">
-                        <i class="far fa-user fa-3x col-5"></i>
+                        <i class="fas fa-user-plus fa-3x col-5"></i>
                     </div>
                     <!-- username -->
                     <div class="form-outline text-left" data-mdb-input-init>
-                        <input type="text" id="create-username" name="username" class="form-control" />
+                        <input type="text" id="create-username" name="create-username" class="form-control" />
                         <label class="form-label" for="create-username">Username</label>
                     </div>
                     <br>
@@ -22,18 +23,18 @@
                     </div>
                      <!-- password -->
                     <div class="form-outline text-left" data-mdb-input-init>
-                        <input type="password" id="create-password" name="password" class="form-control" />
+                        <input type="password" id="create-password" name="create-password" class="form-control" />
                         <label class="form-label" for="create-password">Password</label>
                     </div>
                     <br>
                     <!-- register -->
                     <div class="col-12">
                         <button class="btn btn-primary" type="submit" data-mdb-ripple-init>Create Account</button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
-</div>
-</div>
 </div>
 
 {% endblock %}
