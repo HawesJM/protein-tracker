@@ -18,3 +18,30 @@ a {
 #login-redirect {
     color: blue !important;
 }
+
+.flashes {
+    background-color: #FFAB91;
+    margin-top: 20px;
+    line-height: 2;
+}
+
+.btn {
+    background-color:#bf360c
+}
+
+.btn:hover {
+    background-color:#e64a19;
+}
+
+.accordion-button {
+    background-color: #ffab91 !important;
+    color: white !important;
+}
+
+h2 {
+    font-size: 22px;
+}
+
+.md-input label.focus {
+    background-color: #FFAB91 !important;
+}

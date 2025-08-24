@@ -21,7 +21,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_days")
 def get_days():
-    days = mongo.db.days.find()
+    days = mongo.db.days.find().sort("date", -1).limit(7)
     return render_template("days.html", days=days)
 
 
@@ -95,6 +95,12 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+@app.route("/record_day")
+def record_day():
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("record_day.html", categories=categories)
 
 
 if __name__ == "__main__":

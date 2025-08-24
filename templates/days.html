@@ -1,9 +1,34 @@
 {% extends "base.html" %}
 {% block content %}
 
-
+<br>
+<div class="row text-center">
+<h1>Protein Intake By Day</h1>
+</div>
+<br>
 {% for days in days %}
-    {{ days.day_date }}<br>
+    <div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button
+        data-mdb-collapse-init
+        class="accordion-button"
+        type="button"
+        data-mdb-target="#collapseOne"
+        aria-expanded="true"
+        aria-controls="collapseOne"
+      >
+        <strong>{{ days.day_date }}</strong>
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-mdb-parent="#accordionExample">
+      <div class="accordion-body">
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
 {% endfor %}
+
+
 
 {% endblock %}
