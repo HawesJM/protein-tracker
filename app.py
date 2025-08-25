@@ -97,8 +97,19 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/record_day")
+@app.route("/record_day", methods=["GET", "POST"])
 def record_day():
+    if request.method == "POST":
+        day = {
+            "day_date": request.form.get("entry_date"),
+            "category_name": request.form.get("category_one"),
+            "food_item": request.form.get("food_item_one"),
+            "protein_amount": request.form.get("protein_one"),
+            "created_by": session["user"]
+        }
+        mongo.db.days.insert_one(day)
+        flash("Day Successfully Recorded!")
+        return redirect(url_for("get_days"))
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("record_day.html", categories=categories)
 

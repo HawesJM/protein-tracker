@@ -5,7 +5,7 @@
 </div>
 <br />
 <div class="card p-5">
-  <form>
+  <form method="POST" action="{{ url_for('record_day') }}">
     <!-- 2 column grid layout with text inputs for the first and last names -->
     <div class="row mb-4">
       <div id="date-picker" class="col">
@@ -13,8 +13,8 @@
           <h2>Entry Date</h2>
         </label>
         <input
-          id="entry-date"
-          name="entry-date"
+          id="entry_date"
+          name="entry_date"
           class="form-control"
           type="date"
           required
@@ -24,23 +24,23 @@
     <div class="row mb-4">
       <div class="col">
         <div data-mdb-input-init class="form-outline">
-          <input type="text" id="form6Example1" class="form-control" />
-          <label class="form-label" for="form6Example1"
+          <input type="text" id="food_item_one" name="food_item_one" class="form-control" />
+          <label class="form-label" for="food_item_one"
             >Food Item One <i class="fas fa-utensils"></i
           ></label>
         </div>
       </div>
       <div class="col">
         <div data-mdb-input-init class="form-outline">
-          <input type="text" id="form6Example2" class="form-control" />
-          <label class="form-label" for="form6Example2"
+          <input type="text" id="protein_one" name="protein_one" class="form-control" />
+          <label class="form-label" for="protein_one"
             >Protein (Grams) <i class="fas fa-scale-balanced"></i
           ></label>
         </div>
       </div>
       <div class="col">
         <div data-mdb-input-init class="md-form">
-            <select class="form-control">
+            <select class="form-control" id="category_one" name="category_one">
                 <option value="" disabled selected> Category <i class="fas fa-scale-balanced"></i></option>
                 {% for category in categories %}
                 <option value="{{category.category_name}}">{{category.category_name}}</option>
@@ -52,7 +52,7 @@
     <!-- Submit button -->
     <button
       data-mdb-ripple-init
-      type="button"
+      type="submit"
       class="btn btn-primary btn-block mb-4"
     >
       Enter Log
