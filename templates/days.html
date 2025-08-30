@@ -7,26 +7,34 @@
 </div>
 <br>
 {% for days in days %}
-    <div class="accordion" id="accordionExample">
+  <div class="accordion" id="accordionExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
       <button
         data-mdb-collapse-init
         class="accordion-button"
         type="button"
-        data-mdb-target="#collapseOne"
+        data-mdb-target="#{{days.friendly_description}}"
         aria-expanded="true"
-        aria-controls="collapseOne"
+        aria-controls="{{days.friendly_description}}"
       >
         <strong>{{ days.day_date }}</strong>
       </button>
     </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-mdb-parent="#accordionExample">
-      <div class="accordion-body">
+    <div id="{{days.friendly_description}}" class="accordion-collapse collapse show" aria-labelledby="{{days.friendly_description}}" data-mdb-parent="#accordionExample">
+      <div class="accordion-body mb-2">
+        <strong>{{days.description}}</strong>
+        <div class="row mx-auto text-center">
+          <button type="button" class="btn btn-warning col-3" data-mdb-ripple-init>Warning</button>
+          <div class="col-6">
+
+          </div>
+          <button type="button" class="btn btn-danger col-3" data-mdb-ripple-init>Danger</button>
+        </div>
       </div>
     </div>
   </div>
-  <div class="accordion-item">
+</div>
 {% endfor %}
 
 

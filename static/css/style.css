@@ -25,11 +25,11 @@ a {
     line-height: 2;
 }
 
-.btn {
+.btn-success {
     background-color:#bf360c
 }
 
-.btn:hover {
+.btn-success:hover {
     background-color:#e64a19;
 }
 

@@ -21,8 +21,12 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_days")
 def get_days():
-    days = mongo.db.days.find().sort("date", -1).limit(7)
-    return render_template("days.html", days=days)
+    days = mongo.db.days.find().sort("day_date", -1).limit(7)
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    id = mongo.db.days.find({"_id": ObjectId()})
+
+    return render_template("days.html", days=days, username=username, id=id)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -132,7 +136,11 @@ def record_day():
             "category_name_ten": request.form.get("category_ten"),
             "food_item_ten": request.form.get("food_item_ten"),
             "protein_amount_ten": request.form.get("protein_ten"),
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "description": request.form.get("log_description"),
+            "friendly_description": (
+                request.form.get("log_description").replace(" ", "")
+            )
         }
         mongo.db.days.insert_one(day)
         flash("Day Successfully Recorded!")
