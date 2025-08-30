@@ -105,12 +105,39 @@ def record_day():
             "category_name": request.form.get("category_one"),
             "food_item": request.form.get("food_item_one"),
             "protein_amount": request.form.get("protein_one"),
+            "category_name_two": request.form.get("category_two"),
+            "food_item_two": request.form.get("food_item_two"),
+            "protein_amount_two": request.form.get("protein_two"),
+            "category_name_three": request.form.get("category_three"),
+            "food_item_three": request.form.get("food_item_three"),
+            "protein_amount_three": request.form.get("protein_three"),
+            "category_name_four": request.form.get("category_four"),
+            "food_item_four": request.form.get("food_item_four"),
+            "protein_amount_four": request.form.get("protein_four"),
+            "category_name_five": request.form.get("category_five"),
+            "food_item_five": request.form.get("food_item_five"),
+            "protein_amount_five": request.form.get("protein_five"),
+            "category_name_six": request.form.get("category_six"),
+            "food_item_six": request.form.get("food_item_six"),
+            "protein_amount_six": request.form.get("protein_six"),
+            "category_name_seven": request.form.get("category_seven"),
+            "food_item_seven": request.form.get("food_item_seven"),
+            "protein_amount_seven": request.form.get("protein_seven"),
+            "category_name_eight": request.form.get("category_eight"),
+            "food_item_eight": request.form.get("food_item_eight"),
+            "protein_amount_eight": request.form.get("protein_eight"),
+            "category_name_nine": request.form.get("category_nine"),
+            "food_item_nine": request.form.get("food_item_nine"),
+            "protein_amount_nine": request.form.get("protein_nine"),
+            "category_name_ten": request.form.get("category_ten"),
+            "food_item_ten": request.form.get("food_item_ten"),
+            "protein_amount_ten": request.form.get("protein_ten"),
             "created_by": session["user"]
         }
         mongo.db.days.insert_one(day)
         flash("Day Successfully Recorded!")
         return redirect(url_for("get_days"))
-    categories = mongo.db.categories.find().sort("category_name", 1)
+    categories = list(mongo.db.categories.find().sort("category_name", 1))
     return render_template("record_day.html", categories=categories)
 
 

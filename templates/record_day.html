@@ -4,11 +4,12 @@
   <h1>Log your daily protein intake</h1>
 </div>
 <br />
+    <!-- food entry log form-->
 <div class="card p-5">
-  <form method="POST" action="{{ url_for('record_day') }}">
-    <!-- 2 column grid layout with text inputs for the first and last names -->
+  <form id="food-form" method="POST" action="{{ url_for('record_day') }}">
+    <!-- date -->
     <div class="row mb-4">
-      <div id="date-picker" class="col">
+      <div id="date-picker" class="col" required>
         <label for="entry-date">
           <h2>Entry Date</h2>
         </label>
@@ -21,10 +22,11 @@
         />
       </div>
     </div>
-    <div class="row mb-4">
+    <!-- food item one -->
+    <div class="row mb-4 group-one">
       <div class="col">
-        <div data-mdb-input-init class="form-outline">
-          <input type="text" id="food_item_one" name="food_item_one" class="form-control" />
+        <div data-mdb-input-init  class="form-outline">
+          <input type="text" id="food_item_one" name="food_item_one" class="form-control" required />
           <label class="form-label" for="food_item_one"
             >Food Item One <i class="fas fa-utensils"></i
           ></label>
@@ -32,16 +34,16 @@
       </div>
       <div class="col">
         <div data-mdb-input-init class="form-outline">
-          <input type="text" id="protein_one" name="protein_one" class="form-control" />
+          <input type="text" id="protein_one" name="protein_one" class="form-control" required />
           <label class="form-label" for="protein_one"
             >Protein (Grams) <i class="fas fa-scale-balanced"></i
           ></label>
         </div>
       </div>
       <div class="col">
-        <div data-mdb-input-init class="md-form">
-            <select class="form-control" id="category_one" name="category_one">
-                <option value="" disabled selected> Category <i class="fas fa-scale-balanced"></i></option>
+        <div data-mdb-input-select class="select">
+            <select class="form-control" id="category_one" name="category_one" required> 
+                <option value="" disabled selected> Category </i></option>
                 {% for category in categories %}
                 <option value="{{category.category_name}}">{{category.category_name}}</option>
                 {% endfor %}
@@ -49,7 +51,240 @@
         </div>
       </div>
     </div>
-    <!-- Submit button -->
+    <!-- food item two -->
+        <div class="row mb-4 group-one">
+          <div class="col">
+            <div data-mdb-input-init class="form-outline">
+              <input type="text" id="food_item_two" name="food_item_two" class="form-control"  />
+              <label class="form-label" for="food_item_two">Food Item Two <i class="fas fa-utensils"></i></label>
+            </div>
+          </div>
+          <div class="col">
+            <div data-mdb-input-init class="form-outline">
+              <input type="text" id="protein_two" name="protein_two" class="form-control"  />
+              <label class="form-label" for="protein_two">Protein (Grams) <i class="fas fa-scale-balanced"></i></label>
+            </div>
+          </div>
+          <div class="col">
+            <div data-mdb-input-select class="select">
+              <select class="form-control" id="category_two" name="category_two" >
+                <option value="" disabled selected> Category </i></option>
+                {% for category in categories %}
+                <option value="{{category.category_name}}">{{category.category_name}}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+        </div>
+      <!-- food item three -->
+      <div class="row mb-4 group-one">
+        <div class="col">
+          <div data-mdb-input-init class="form-outline">
+            <input type="text" id="food_item_three" name="food_item_three" class="form-control"  />
+            <label class="form-label" for="food_item_three">Food Item Three <i class="fas fa-utensils"></i></label>
+          </div>
+        </div>
+          <div class="col">
+            <div data-mdb-input-init class="form-outline">
+              <input type="text" id="protein_three" name="protein_three" class="form-control"  />
+              <label class="form-label" for="protein_three">Protein (Grams) <i class="fas fa-scale-balanced"></i></label>
+            </div>
+          </div>
+            <div class="col">
+              <div data-mdb-input-select class="select">
+                <select class="form-control" id="category_three" name="category_three" >
+                  <option value="" disabled selected> Category </i></option>
+                  {% for category in categories %}
+                  <option value="{{category.category_name}}">{{category.category_name}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+        </div>
+      </div>
+    <!--food item four-->
+      <div class="row mb-4 group-one">
+        <div class="col">
+          <div data-mdb-input-init class="form-outline">
+            <input type="text" id="food_item_four" name="food_item_four" class="form-control"  />
+            <label class="form-label" for="food_item_four">Food Item Four <i class="fas fa-utensils"></i></label>
+          </div>
+        </div>
+          <div class="col">
+            <div data-mdb-input-init class="form-outline">
+              <input type="text" id="protein_four" name="protein_four" class="form-control"  />
+              <label class="form-label" for="protein_four">Protein (Grams) <i class="fas fa-scale-balanced"></i></label>
+            </div>
+          </div>
+            <div class="col"> 
+              <div data-mdb-input-select class="select">
+                <select class="form-control" id="category_four" name="category_four" >
+                  <option value="" disabled selected> Category </i></option>
+                  {% for category in categories %}
+                  <option value="{{category.category_name}}">{{category.category_name}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+        </div>
+      </div>
+    <!--food item five-->
+      <div class="row mb-4 group-one">
+        <div class="col">
+          <div data-mdb-input-init class="form-outline">
+            <input type="text" id="food_item_five" name="food_item_five" class="form-control"  />
+            <label class="form-label" for="food_item_five">Food Item Five <i class="fas fa-utensils"></i></label>
+          </div>
+        </div>
+          <div class="col">
+            <div data-mdb-input-init class="form-outline">
+              <input type="text" id="protein_five" name="protein_five" class="form-control"  />
+              <label class="form-label" for="protein_five">Protein (Grams) <i class="fas fa-scale-balanced"></i></label>
+            </div>
+          </div>
+            <div class="col">
+              <div data-mdb-input-select class="select">
+                <select class="form-control" id="category_five" name="category_five" >
+                  <option value="" disabled selected> Category </i></option>
+                  {% for category in categories %}
+                  <option value="{{category.category_name}}">{{category.category_name}}</option>
+                  {% endfor %}
+                </select>
+              </div>  
+        </div>
+      </div>
+
+      <div class="row mx-auto text-center mb-4 card" id="add-records-container">
+        <i id="add-records" class="fas fa-3x fa-circle-plus increase-records"></i>
+      </div>
+      <!-- group two -->
+           <!-- food item six -->
+    <div class="row mb-4 group-two hidden">
+      <div class="col">
+        <div data-mdb-input-init class="form-outline">
+          <input type="text" id="food_item_six" name="food_item_six" class="form-control" />
+          <label class="form-label" for="food_item_six">Food Item Six <i class="fas fa-utensils"></i></label>
+        </div>
+      </div>
+      <div class="col">
+        <div data-mdb-input-init class="form-outline">
+          <input type="text" id="protein_six" name="protein_six" class="form-control" />
+          <label class="form-label" for="protein_six">Protein (Grams) <i class="fas fa-scale-balanced"></i></label>
+        </div>
+      </div>
+      <div class="col"> 
+        <div data-mdb-input-select class="select">
+          <select class="form-control" id="category_six" name="category_six">
+            <option value="" disabled selected> Category </i></option>
+            {% for category in categories %}
+            <option value="{{category.category_name}}">{{category.category_name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+    </div>
+    <!-- food item seven -->
+    <div class="row mb-4 group-two hidden">
+      <div class="col">
+        <div data-mdb-input-init class="form-outline">
+          <input type="text" id="food_item_seven" name="food_item_seven" class="form-control" />
+          <label class="form-label" for="food_item_seven">Food Item Seven <i class="fas fa-utensils"></i></label>
+        </div>
+      </div>
+      <div class="col">   
+        <div data-mdb-input-init class="form-outline">
+          <input type="text" id="protein_seven" name="protein_seven" class="form-control" />
+          <label class="form-label
+          " for="protein_seven">Protein (Grams) <i class="fas fa-scale-balanced"></i></label>
+        </div>
+      </div>    
+      <div class="col">
+        <div data-mdb-input-select class="select">
+          <select class="form-control" id="category_seven" name="category_seven">
+            <option value="" disabled selected> Category </i></option>
+            {% for category in categories %}
+            <option value="{{category.category_name}}">{{category.category_name}}</option>
+            {% endfor %}
+          </select>
+        </div> 
+      </div>
+    </div>
+    <!-- food item eight -->
+    <div class="row mb-4 group-two hidden">    
+      <div class="col">
+        <div data-mdb-input-init class="form-outline">
+          <input type="text" id="food_item_eight" name="food_item_eight" class="form-control" />
+          <label class="form-label" for="food_item_eight">Food Item Eight <i class="fas fa-utensils"></i></label>
+        </div>
+      </div>
+      <div class="col">
+        <div data-mdb-input-init class="form-outline">
+          <input type="text" id="protein_eight" name="protein_eight" class="form-control" />
+          <label class="form-label" for="protein_eight">Protein (Grams) <i class="fas fa-scale-balanced"></i></label>
+        </div>
+      </div>
+      <div class="col">
+        <div data-mdb-input-select class="select">
+          <select class="form-control" id="category_eight" name="category_eight">
+            <option value="" disabled selected> Category </i></option>
+            {% for category in categories %}
+            <option value="{{category.category_name}}">{{category.category_name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+    </div>
+    <!-- food item nine -->
+    <div class="row mb-4 group-two hidden">
+      <div class="col">
+        <div data-mdb-input-init class="form-outline">
+          <input type="text" id="food_item_nine" name="food_item_nine" class="form-control" />
+          <label class="form-label" for="food_item_nine">Food Item Nine <i class="fas fa-utensils"></i></label>
+        </div>
+      </div>
+      <div class="col"> 
+        <div data-mdb-input-init class="form-outline">
+          <input type="text" id="protein_nine" name="protein_nine" class="form-control" />
+          <label class="form-label  " for="protein_nine">Protein (Grams) <i class="fas fa-scale-balanced"></i></label>
+        </div>        
+      </div>
+      <div class="col">   
+        <div data-mdb-input-select class="select">
+          <select class="form-control" id="category_nine" name="category_nine">
+            <option value="" disabled selected> Category </i></option>
+            {% for category in categories %}
+            <option value="{{category.category_name}}">{{category.category_name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+    </div>
+    <!-- food item ten -->
+    <div class="row mb-4 group-two hidden">  
+      <div class="col">
+        <div data-mdb-input-init class="form-outline">
+          <input type="text" id="food_item_ten" name="food_item_ten" class="form-control" />
+          <label class="form-label" for="food_item_ten">Food Item Ten <i class="fas fa-utensils"></i></label>
+        </div>
+      </div>
+      <div class="col">
+        <div data-mdb-input-init class="form-outline">
+          <input type="text" id="protein_ten" name="protein_ten" class="form-control" />
+          <label class="form-label
+            " for="protein_ten">Protein (Grams) <i class="fas fa-scale-balanced"></i></label>
+        </div>
+      </div>  
+      <div class="col">
+        <div data-mdb-input-select class="select">
+          <select class="form-control" id="category_ten" name="category_ten">
+            <option value="" disabled selected> Category </i></option>
+            {% for category in categories %}
+            <option value="{{category.category_name}}">{{category.category_name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+    </div>    
+
+       <!-- submit button -->
     <button
       data-mdb-ripple-init
       type="submit"

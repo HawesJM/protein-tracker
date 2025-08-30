@@ -42,6 +42,16 @@ h2 {
     font-size: 22px;
 }
 
-.md-input label.focus {
-    background-color: #FFAB91 !important;
+#add-records {
+  color: #bf360c;
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+}
+
+.increase-records:active {
+  transform: translateY(4px);
+}
+
+.hidden {
+    display: none;
 }
