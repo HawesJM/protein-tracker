@@ -25,8 +25,9 @@
       <div class="accordion-body mb-2">
         <strong>{{days.description}}</strong>
         <div class="row mx-auto text-center">
-          <button type="button" class="btn btn-warning col-3" data-mdb-ripple-init>Warning</button>
-          <div class="col-6">
+          <a href="{{ url_for('edit_day', day_id=days._id) }}" class="btn btn-warning col-3" data-mdb-ripple-init>Edit Record
+          </a>
+          <div class="col-5">
 
           </div>
           <button type="button" class="btn btn-danger col-3" data-mdb-ripple-init>Danger</button>
