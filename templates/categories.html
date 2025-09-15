@@ -11,7 +11,7 @@
   <div class="card-body">
     <h2 class="card-title">{{ category.category_name }}</h2>
     {% if username == "admin" %}
-    <button type="button" class="btn btn-primary" data-mdb-ripple-init>Delete</button>
+    <a class="btn btn-primary" href="{{ url_for('delete_category', category_id=category._id) }}" data-mdb-ripple-init>Delete</a>
     {% endif %}
   </div>
 </div>

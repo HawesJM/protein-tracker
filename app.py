@@ -211,8 +211,10 @@ def delete_day(day_id):
 
 @app.route("/get_categories")
 def get_categories():
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
     categories = list(mongo.db.categories.find().sort("category_name", 1))
-    return render_template("categories.html", categories=categories)
+    return render_template("categories.html", categories=categories, username=username)
 
 
 @app.route("/add_category", methods=["GET", "POST"])
@@ -225,6 +227,12 @@ def add_category():
         flash("New Category Added")
         return redirect(url_for("get_categories"))
 
+
+@app.route("/delete_category/<category_id>")
+def delete_category(category_id):
+    mongo.db.categories.delete_one({"_id": ObjectId(category_id)})
+    flash("Category Successfully Deleted")
+    return redirect(url_for("get_categories"))
 
  
 if __name__ == "__main__":
