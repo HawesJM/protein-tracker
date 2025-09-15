@@ -201,6 +201,13 @@ def edit_day(day_id):
         days=days
     )
 
+
+@app.route("/delete_day/<day_id>")
+def delete_day(day_id):
+    mongo.db.days.delete_one({"_id": ObjectId(day_id)})
+    flash("Record Successfully Deleted")
+    return redirect(url_for("get_day"))
+
  
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

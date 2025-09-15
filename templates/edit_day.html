@@ -9,14 +9,14 @@
   <form id="food-form" method="POST" action="{{ url_for('edit_day', day_id=day._id) }}">
     <!-- date -->
     <div class="row mb-4 mx-auto text-center">
-          <h2>{{day.day_date}}</h2>
-          <h3>{{day.description}}</h3>
+          <h2>{{day.description}}</h2>
+          <input type="date" id="entry_date" name="entry_date" value="{{day.day_date}}" />
       </div>
     <!-- food item one -->
     <div class="row mb-4 group-one">
       <div class="col">
         <div data-mdb-input-init  class="form-outline">
-          <input type="text" id="food_item_one" name="food_item_one" class="form-control" />
+          <input type="text" id="food_item_one" name="food_item_one" class="form-control" value="{{day.food_item}}" />
           <label class="form-label" for="food_item_one"
             >{{day.food_item}} <i class="fas fa-utensils"></i
           ></label>
@@ -24,7 +24,7 @@
       </div>
       <div class="col">
         <div data-mdb-input-init class="form-outline">
-          <input type="text" id="protein_one" name="protein_one" class="form-control" />
+          <input type="text" id="protein_one" name="protein_one" class="form-control" value="{{day.protein_amount}}"/>
           <label class="form-label" for="protein_one"
             >{{day.protein_amount}} (g) <i class="fas fa-scale-balanced"></i
           ></label>
@@ -45,13 +45,13 @@
         <div class="row mb-4 group-one">
           <div class="col">
             <div data-mdb-input-init class="form-outline">
-              <input type="text" id="food_item_two" name="food_item_two" class="form-control"  />
+              <input type="text" id="food_item_two" name="food_item_two" class="form-control" value="{{day.food_item_two}}"  />
               <label class="form-label" for="food_item_two">{{day.food_item_two}} <i class="fas fa-utensils"></i></label>
             </div>
           </div>
           <div class="col">
             <div data-mdb-input-init class="form-outline">
-              <input type="text" id="protein_two" name="protein_two" class="form-control"  />
+              <input type="text" id="protein_two" name="protein_two" class="form-control" value="{{day.protein_amount_two}}" />
               <label class="form-label" for="protein_two">{{day.protein_amount_two}} (g) <i class="fas fa-scale-balanced"></i></label>
             </div>
           </div>
@@ -70,13 +70,13 @@
       <div class="row mb-4 group-one">
         <div class="col">
           <div data-mdb-input-init class="form-outline">
-            <input type="text" id="food_item_three" name="food_item_three" class="form-control"  />
+            <input type="text" id="food_item_three" name="food_item_three" class="form-control" value="{{day.food_item_three}}" />
             <label class="form-label" for="food_item_three">{{day.food_item_three}}<i class="fas fa-utensils"></i></label>
           </div>
         </div>
           <div class="col">
             <div data-mdb-input-init class="form-outline">
-              <input type="text" id="protein_three" name="protein_three" class="form-control"  />
+              <input type="text" id="protein_three" name="protein_three" class="form-control" value="{{day.protein_amount_three}}" />
               <label class="form-label" for="protein_three">{{day.protein_amount_three}} (g) <i class="fas fa-scale-balanced"></i></label>
             </div>
           </div>
@@ -95,13 +95,13 @@
       <div class="row mb-4 group-one">
         <div class="col">
           <div data-mdb-input-init class="form-outline">
-            <input type="text" id="food_item_four" name="food_item_four" class="form-control"  />
+            <input type="text" id="food_item_four" name="food_item_four" class="form-control" value="{{day.food_item_four}}"  />
             <label class="form-label" for="food_item_four">{{day.food_item_four}} <i class="fas fa-utensils"></i></label>
           </div>
         </div>
           <div class="col">
             <div data-mdb-input-init class="form-outline">
-              <input type="text" id="protein_four" name="protein_four" class="form-control"  />
+              <input type="text" id="protein_four" name="protein_four" class="form-control" value="{{day.protein_amount_four}}"  />
               <label class="form-label" for="protein_four">{{day.protein_amount_four}} (g) <i class="fas fa-scale-balanced"></i></label>
             </div>
           </div>
@@ -120,13 +120,13 @@
       <div class="row mb-4 group-one">
         <div class="col">
           <div data-mdb-input-init class="form-outline">
-            <input type="text" id="food_item_five" name="food_item_five" class="form-control"  />
+            <input type="text" id="food_item_five" name="food_item_five" class="form-control" value="{{day.food_item_five}}" />
             <label class="form-label" for="food_item_five">{{day.food_item_five}} <i class="fas fa-utensils"></i></label>
           </div>
         </div>
           <div class="col">
             <div data-mdb-input-init class="form-outline">
-              <input type="text" id="protein_five" name="protein_five" class="form-control"  />
+              <input type="text" id="protein_five" name="protein_five" class="form-control" value="{{day.protein_amount_five}}" />
               <label class="form-label" for="protein_five">{{day.protein_amount_five}} (g) <i class="fas fa-scale-balanced"></i></label>
             </div>
           </div>
@@ -142,7 +142,7 @@
         </div>
       </div>
       <div class="form-outline mb-4" data-mdb-input-init>
-          <input type="text" id="log_description" name="log_description" class="form-control" aria-describedby="log_description" required />
+          <input type="text" id="log_description" name="log_description" class="form-control" aria-describedby="log_description" value="{{day.description}}" />
           <label class="form-label" for="log_description">{{day.description}}</label>
       </div>
 
@@ -154,13 +154,13 @@
     <div class="row mb-4 group-two hidden">
       <div class="col">
         <div data-mdb-input-init class="form-outline">
-          <input type="text" id="food_item_six" name="food_item_six" class="form-control" />
+          <input type="text" id="food_item_six" name="food_item_six" class="form-control" value="{{day.food_item_six}}" />
           <label class="form-label" for="food_item_six">{{day.food_item_six}} <i class="fas fa-utensils"></i></label>
         </div>
       </div>
       <div class="col">
         <div data-mdb-input-init class="form-outline">
-          <input type="text" id="protein_six" name="protein_six" class="form-control" />
+          <input type="text" id="protein_six" name="protein_six" class="form-control" value="{{day.protein_amount_six}}"/>
           <label class="form-label" for="protein_six">{{day.protein_amount_six}} (g) <i class="fas fa-scale-balanced"></i></label>
         </div>
       </div>
@@ -179,13 +179,13 @@
     <div class="row mb-4 group-two hidden">
       <div class="col">
         <div data-mdb-input-init class="form-outline">
-          <input type="text" id="food_item_seven" name="food_item_seven" class="form-control" />
+          <input type="text" id="food_item_seven" name="food_item_seven" class="form-control" value="{{day.food_item_seven}}" />
           <label class="form-label" for="food_item_seven">{{day.food_item_seven}} <i class="fas fa-utensils"></i></label>
         </div>
       </div>
       <div class="col">   
         <div data-mdb-input-init class="form-outline">
-          <input type="text" id="protein_seven" name="protein_seven" class="form-control" />
+          <input type="text" id="protein_seven" name="protein_seven" class="form-control" value="{{day.protein_amount_seven}}"/>
           <label class="form-label
           " for="protein_seven">{{day.protein_amount_seven}} (g) <i class="fas fa-scale-balanced"></i></label>
         </div>
@@ -205,13 +205,13 @@
     <div class="row mb-4 group-two hidden">    
       <div class="col">
         <div data-mdb-input-init class="form-outline">
-          <input type="text" id="food_item_eight" name="food_item_eight" class="form-control" />
+          <input type="text" id="food_item_eight" name="food_item_eight" class="form-control" value="{{day.food_item_eight}}"/>
           <label class="form-label" for="food_item_eight">{{day.food_item_eight}} <i class="fas fa-utensils"></i></label>
         </div>
       </div>
       <div class="col">
         <div data-mdb-input-init class="form-outline">
-          <input type="text" id="protein_eight" name="protein_eight" class="form-control" />
+          <input type="text" id="protein_eight" name="protein_eight" class="form-control" value="{{day.protein_amount_eight}}"/>
           <label class="form-label" for="protein_eight">{{day.protein_amount_eight}} (g) <i class="fas fa-scale-balanced"></i></label>
         </div>
       </div>
@@ -230,13 +230,13 @@
     <div class="row mb-4 group-two hidden">
       <div class="col">
         <div data-mdb-input-init class="form-outline">
-          <input type="text" id="food_item_nine" name="food_item_nine" class="form-control" />
+          <input type="text" id="food_item_nine" name="food_item_nine" class="form-control" value="{{day.food_item_nine}}"/>
           <label class="form-label" for="food_item_nine">{{day.food_item_nine}} <i class="fas fa-utensils"></i></label>
         </div>
       </div>
       <div class="col"> 
         <div data-mdb-input-init class="form-outline">
-          <input type="text" id="protein_nine" name="protein_nine" class="form-control" />
+          <input type="text" id="protein_nine" name="protein_nine" class="form-control" value="{{day.protein_amount_nine}}" />
           <label class="form-label  " for="protein_nine">{{day.protein_amount_nine}} (g) <i class="fas fa-scale-balanced"></i></label>
         </div>        
       </div>
@@ -255,13 +255,13 @@
     <div class="row mb-4 group-two hidden">  
       <div class="col">
         <div data-mdb-input-init class="form-outline">
-          <input type="text" id="food_item_ten" name="food_item_ten" class="form-control" />
+          <input type="text" id="food_item_ten" name="food_item_ten" class="form-control" value="{{day.food_item_ten}}"/>
           <label class="form-label" for="food_item_ten">{{day.food_item_ten}} <i class="fas fa-utensils"></i></label>
         </div>
       </div>
       <div class="col">
         <div data-mdb-input-init class="form-outline">
-          <input type="text" id="protein_ten" name="protein_ten" class="form-control" />
+          <input type="text" id="protein_ten" name="protein_ten" class="form-control" value="{{day.protein_amount_ten}}"/>
           <label class="form-label
             " for="protein_ten">{{day.protein_amount_ten}} (g) <i class="fas fa-scale-balanced"></i></label>
         </div>

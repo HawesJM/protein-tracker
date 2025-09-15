@@ -3,35 +3,41 @@
 
 <br>
 <div class="row text-center">
-<h1>Protein Intake By Day</h1>
+  <h1>Protein Intake By Day</h1>
 </div>
 <br>
 {% for days in days %}
-  <div class="accordion" id="accordionExample">
+<div class="accordion" id="accordionExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
-      <button
-        data-mdb-collapse-init
-        class="accordion-button"
-        type="button"
-        data-mdb-target="#{{days.friendly_description}}"
-        aria-expanded="true"
-        aria-controls="{{days.friendly_description}}"
-      >
+      <button data-mdb-collapse-init class="accordion-button" type="button"
+        data-mdb-target="#{{days.friendly_description}}" aria-expanded="true"
+        aria-controls="{{days.friendly_description}}">
         <strong>{{ days.day_date }}</strong>
       </button>
     </h2>
-    <div id="{{days.friendly_description}}" class="accordion-collapse collapse show" aria-labelledby="{{days.friendly_description}}" data-mdb-parent="#accordionExample">
+    <div id="{{days.friendly_description}}" class="accordion-collapse collapse show"
+      aria-labelledby="{{days.friendly_description}}" data-mdb-parent="#accordionExample">
       <div class="accordion-body mb-2">
         <strong>{{days.description}}</strong>
+        {% if session.user|lower == days.created_by|lower %}
         <div class="row mx-auto text-center">
-          <a href="{{ url_for('edit_day', day_id=days._id) }}" class="btn btn-warning col-3" data-mdb-ripple-init>Edit Record
-          </a>
-          <div class="col-5">
+          <div class="col-3">
+            <a href="{{ url_for('edit_day', day_id=days._id) }}" class="btn btn-warning" data-mdb-ripple-init>Edit
+              Record
+            </a>
+          </div>
+          <div class="col-6">
 
           </div>
-          <button type="button" class="btn btn-danger col-3" data-mdb-ripple-init>Danger</button>
+          <div class="col-3">
+            <a href="{{ url_for('delete_day', day_id=days._id) }}" class="btn btn-danger"
+              data-mdb-ripple-init>Delete
+              Record
+            </a>
+          </div>
         </div>
+        {% endif %}
       </div>
     </div>
   </div>
