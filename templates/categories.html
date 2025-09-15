@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<br>
+<div class="row text-center">
+  <h1>Categories</h1>
+</div>
+<br>
+<div class="row mx-auto text-center">
+  {% for category in categories %}
+<div class="card col-2">
+  <div class="card-body">
+    <h2 class="card-title">{{ category.category_name }}</h2>
+    {% if username == "admin" %}
+    <button type="button" class="btn btn-primary" data-mdb-ripple-init>Delete</button>
+    {% endif %}
+  </div>
+</div>
+  {% endfor %}
+</div>
+<div class="card row text-center mt-4">
+  <br>
+        <h3>Add New Category</h3>
+        <i id="add-category" class="fas fa-3x fa-circle-plus increase-records"></i>
+        <br>
+      <div id="new-category-form" class="col-6 mx-auto hidden">
+        <form action="{{ url_for('add_category') }}" method="POST">
+          <div data-mdb-input-init  class="form-outline">
+          <input type="text" id="new_category" name="category_name" class="form-control" required />
+          <label class="form-label" for="new_category"
+            >Category Name <i class="fas fa-utensils"></i
+          ></label>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary" data-mdb-ripple-init>Add Category</button>
+        </form>
+        <br>
+      </div>
+  </div>
+{% endblock %}
