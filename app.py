@@ -234,6 +234,13 @@ def delete_category(category_id):
     flash("Category Successfully Deleted")
     return redirect(url_for("get_categories"))
 
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("record-search")
+    days = list(mongo.db.days.find({"$text": {"$search": query}}))
+    return render_template("days.html", days=days)
+
  
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
