@@ -136,7 +136,14 @@ def record_day():
             "description": request.form.get("log_description"),
             "friendly_description": (
                 request.form.get("log_description").replace(" ", "")
-            )
+            ),
+            "total_protein": (
+                int(request.form.get("protein_one") or 0) + int(request.form.get("protein_two") or 0) +
+                int(request.form.get("protein_three") or 0) + int(request.form.get("protein_four") or 0) +
+                int(request.form.get("protein_five") or 0) + int(request.form.get("protein_six") or 0) +
+                int(request.form.get("protein_seven") or 0) + int(request.form.get("protein_eight") or 0) +
+                int(request.form.get("protein_nine") or 0) + int(request.form.get("protein_ten") or 0)
+                ),
         }
         mongo.db.days.insert_one(day)
         flash("Day Successfully Recorded!")

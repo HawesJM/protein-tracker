@@ -10,12 +10,17 @@
 <div class="form-outline" data-mdb-input-init>
   <input type="search" name="record-search" id="record-search" class="form-control validate" placeholder="Search records" aria-label="Search" required />
   <label class="form-label" for="record-search"><i class="fas fa-magnifying-glass"></i></label>
-   <div class="form-outline">
-                    <a href="{{ url_for('get_days') }}" class="red btn text-shadow">Reset</a>
-                    <button type="submit" class="light-blue darken-1 btn text-shadow">
+  <br>
+   <div class="form-outline row">
+                    <div class="col-6">
+                    <a href="{{ url_for('get_days') }}" class="btn btn-outline-warning">Reset</a>
+                    </div>
+
+                    <div class="col-6 text-end">
+                    <button type="submit" class="btn btn-outline-warning">
                         <i class="fas fa-search left"></i> Search
                     </button>
-                </div>
+                    </div>
   </form>
 </div>
 <br>
@@ -26,13 +31,18 @@
       <button data-mdb-collapse-init class="accordion-button" type="button"
         data-mdb-target="#{{days.friendly_description}}" aria-expanded="true"
         aria-controls="{{days.friendly_description}}">
+        <div class="col-4 text-left">
         <strong>{{ days.day_date }}</strong>
+        </div>
+        <div class="col-4 text-center">
+        <strong>{{ days.total_protein }}(g)</strong>
+        </div>
       </button>
     </h2>
-    <div id="{{days.friendly_description}}" class="accordion-collapse collapse show"
+    <div id="{{days.friendly_description}}" class="accordion-collapse collapse"
       aria-labelledby="{{days.friendly_description}}" data-mdb-parent="#accordionExample">
-      <div class="accordion-body mb-2">
-        <strong>{{days.description}}</strong>
+      <div class="accordion-body mb-2 text-center">
+        <strong> <i>"{{days.description}}"</i></strong>
         {% if session.user|lower == days.created_by|lower %}
         <div class="row mx-auto text-center">
           <div class="col-3">
