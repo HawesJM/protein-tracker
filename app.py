@@ -194,7 +194,14 @@ def edit_day(day_id):
             "description": request.form.get("log_description"),
             "friendly_description": (
                 request.form.get("log_description").replace(" ", "")
-            )
+            ),
+            "total_protein": (
+                int(request.form.get("protein_one") or 0) + int(request.form.get("protein_two") or 0) +
+                int(request.form.get("protein_three") or 0) + int(request.form.get("protein_four") or 0) +
+                int(request.form.get("protein_five") or 0) + int(request.form.get("protein_six") or 0) +
+                int(request.form.get("protein_seven") or 0) + int(request.form.get("protein_eight") or 0) +
+                int(request.form.get("protein_nine") or 0) + int(request.form.get("protein_ten") or 0)
+                ),
         }
 
         mongo.db.days.update_one(
@@ -213,7 +220,7 @@ def edit_day(day_id):
 def delete_day(day_id):
     mongo.db.days.delete_one({"_id": ObjectId(day_id)})
     flash("Record Successfully Deleted")
-    return redirect(url_for("get_day"))
+    return redirect(url_for("get_days"))
 
 
 @app.route("/get_categories")
